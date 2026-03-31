@@ -1,0 +1,71 @@
+<form class="formulario-reserva" [formGroup]="reservaForm" (ngSubmit)="enviar()">
+  <header class="formulario-reserva__cabecera">
+    <h2 class="formulario-reserva__titulo">Crear Nueva Reserva</h2>
+    <p class="formulario-reserva__subtitulo">Complete los datos para registrar una nueva reserva</p>
+  </header>
+
+  <div class="formulario-reserva__cuerpo">
+    <div *ngIf="mensajeError" class="formulario-reserva__alerta--error">{{ mensajeError }}</div>
+
+    <section class="formulario-reserva__seccion">
+      <h3 class="formulario-reserva__seccion-titulo">Huésped Titular</h3>
+      <div class="formulario-reserva__grupo">
+        <select formControlName="titularId" class="formulario-reserva__selector" [class.formulario-reserva__entrada--error]="reservaForm.get('titularId')?.invalid && reservaForm.get('titularId')?.touched">
+          <option value="" disabled selected>Huésped Titular *</option>
+          <option *ngFor="let h of listaHuespedes" [value]="h.huespedId">
+            {{ h.nombres }} {{ h.apellidos }} - {{ h.nroDocumentoIdentidad }}
+          </option>
+        </select>
+      </div>
+    </section>
+
+    <hr class="formulario-reserva__divisor">
+
+    <section class="formulario-reserva__seccion">
+      <h3 class="formulario-reserva__seccion-titulo">Fechas y Estado</h3>
+      <div class="formulario-reserva__fila">
+        <div class="formulario-reserva__grupo">
+          <label class="formulario-reserva__etiqueta">Fecha de Ingreso *</label>
+          <input type="date" formControlName="fechaInicio" class="formulario-reserva__entrada" [class.formulario-reserva__entrada--error]="reservaForm.get('fechaInicio')?.invalid && reservaForm.get('fechaInicio')?.touched">
+        </div>
+        <div class="formulario-reserva__grupo">
+          <label class="formulario-reserva__etiqueta">Fecha de Salida *</label>
+          <input type="date" formControlName="fechaFin" class="formulario-reserva__entrada" [class.formulario-reserva__entrada--error]="reservaForm.get('fechaFin')?.invalid && reservaForm.get('fechaFin')?.touched">
+        </div>
+        <div class="formulario-reserva__grupo">
+          <label class="formulario-reserva__etiqueta">Estado de la Reserva</label>
+          <select formControlName="estado" class="formulario-reserva__selector">
+            <option value="Confirmada">Confirmada</option>
+            <option value="Pendiente">Pendiente</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <hr class="formulario-reserva__divisor">
+
+    <section class="formulario-reserva__seccion">
+      <h3 class="formulario-reserva__seccion-titulo">Selección de Habitación</h3>
+      <div class="formulario-reserva__fila">
+        <div class="formulario-reserva__grupo formulario-reserva__grupo--ancho">
+          <select formControlName="tipoHabitacion" class="formulario-reserva__selector" [class.formulario-reserva__entrada--error]="reservaForm.get('tipoHabitacion')?.invalid && reservaForm.get('tipoHabitacion')?.touched">
+            <option value="" disabled selected>Seleccionar Variación de Habitación *</option>
+            <option value="Simple">Simple (Cap: 1 pers - $80/noche)</option>
+            <option value="Suite">Suite (Cap: 4 pers - $250/noche)</option>
+            <option value="Doble con camas individuales">Doble con camas individuales (Cap: 2 pers - $120/noche)</option>
+            <option value="Doble matrimonial">Doble matrimonial (Cap: 2 pers - $150/noche)</option>
+          </select>
+        </div>
+        <div class="formulario-reserva__grupo">
+          <label class="formulario-reserva__etiqueta">Cant. Personas *</label>
+          <input type="number" formControlName="cantidadPersonas" class="formulario-reserva__entrada" min="1" [class.formulario-reserva__entrada--error]="reservaForm.get('cantidadPersonas')?.invalid && reservaForm.get('cantidadPersonas')?.touched">
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="formulario-reserva__pie">
+    <button type="button" class="formulario-reserva__boton--cancelar" (click)="cancelarModal.emit()">Cancelar</button>
+    <button type="submit" class="formulario-reserva__boton--confirmar">Confirmar Reserva</button>
+  </footer>
+</form>

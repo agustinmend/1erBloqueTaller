@@ -1,0 +1,103 @@
+<div class="agenda-reservas">
+  <header class="agenda-reservas__cabecera">
+    <h2 class="agenda-reservas__titulo">Agenda de Reservas</h2>
+  </header>
+
+  <div class="agenda-reservas__buscador-contenedor">
+    
+    <div style="position: relative; flex-grow: 1;">
+      <i class="fas fa-search agenda-reservas__buscador-icono"></i>
+      <input 
+        type="text" 
+        class="agenda-reservas__buscador-entrada" 
+        placeholder="Buscar por huésped"
+        [(ngModel)]="terminoBusqueda"
+        (keyup.enter)="filtrarReservas()"> </div>
+    
+    <button class="agenda-reservas__boton agenda-reservas__boton--primario" (click)="filtrarReservas()">
+      Buscar
+    </button>
+    
+    <button class="agenda-reservas__boton" (click)="limpiarFiltro()" *ngIf="terminoBusqueda">
+      Limpiar
+    </button>
+
+  </div>
+
+  <div class="agenda-reservas__tabla-contenedor">
+    <table class="agenda-reservas__tabla">
+      <thead class="agenda-reservas__tabla-cabecera">
+        <tr>
+          <th class="agenda-reservas__tabla-th">Huésped Titular</th>
+          <th class="agenda-reservas__tabla-th">Habitación Asignada</th>
+          <th class="agenda-reservas__tabla-th">Tipo de Habitación</th>
+          <th class="agenda-reservas__tabla-th">Llegada</th>
+          <th class="agenda-reservas__tabla-th">Salida</th>
+          <th class="agenda-reservas__tabla-th">Precio Congelado</th>
+          <th class="agenda-reservas__tabla-th">Estado</th>
+          <th class="agenda-reservas__tabla-th agenda-reservas__tabla-th--centro">Acciones</th>
+        </tr>
+      </thead>
+      
+      <tbody class="agenda-reservas__tabla-cuerpo">
+        <tr *ngIf="cargando">
+          <td colspan="8" class="agenda-reservas__celda-vacia">Cargando agenda...</td>
+        </tr>
+        
+        <tr *ngIf="!cargando && reservas.length === 0">
+          <td colspan="8" class="agenda-reservas__celda-vacia">No se encontraron reservas.</td>
+        </tr>
+
+        <tr class="agenda-reservas__fila" *ngFor="let reserva of reservas">
+          
+          <td class="agenda-reservas__celda agenda-reservas__celda--destacada">
+            {{ reserva.huespedTitular }}
+          </td>
+          
+          <td class="agenda-reservas__celda agenda-reservas__celda--negrita">
+            #{{ reserva.habitacionAsignada }}
+          </td>
+          
+          <td class="agenda-reservas__celda">{{ reserva.tipoHabitacion }}</td>
+          
+          <td class="agenda-reservas__celda">{{ reserva.fechaLlegada | date:'dd MMM yyyy' }}</td>
+          <td class="agenda-reservas__celda">{{ reserva.fechaSalida | date:'dd MMM yyyy' }}</td>
+          
+          <td class="agenda-reservas__celda agenda-reservas__celda--precio">
+            {{ reserva.precioCongelado | currency:'USD':'symbol':'1.0-0' }}
+          </td>
+          
+          <td class="agenda-reservas__celda">
+            <span class="agenda-reservas__estado" 
+                  [ngClass]="{
+                    'agenda-reservas__estado--cancelada': reserva.estado === 'Cancelada',
+                    'agenda-reservas__estado--en-curso': reserva.estado === 'Estadía en curso',
+                    'agenda-reservas__estado--confirmada': reserva.estado === 'Confirmada'
+                  }">
+              {{ reserva.estado }}
+            </span>
+          </td>
+          
+          <td class="agenda-reservas__celda agenda-reservas__celda--centro">
+            <ng-container [ngSwitch]="reserva.estado">
+              <span *ngSwitchCase="'Cancelada'" class="agenda-reservas__accion-texto">---</span>
+              <button *ngSwitchCase="'Estadía en curso'" class="agenda-reservas__boton agenda-reservas__boton--deshabilitado" disabled>
+                <i class="far fa-clock"></i> Check-in Realizado
+              </button>
+              <button *ngSwitchCase="'Confirmada'" class="agenda-reservas__boton agenda-reservas__boton--primario" (click)="abrirModalCheckIn(reserva.reservaId)">
+                <i class="fas fa-check-circle"></i> Registrar Check-in
+              </button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-checkin-modal 
+  *ngIf="reservaParaCheckIn !== null" 
+  [reservaId]="reservaParaCheckIn" 
+  (cerrar)="reservaParaCheckIn = null"
+  (checkInExitoso)="onCheckInExitoso()">
+</app-checkin-modal>

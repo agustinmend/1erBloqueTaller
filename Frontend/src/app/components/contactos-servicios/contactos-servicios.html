@@ -1,0 +1,49 @@
+<div class="directorio-servicios">
+  <header class="directorio-servicios__cabecera">
+    <h2 class="directorio-servicios__titulo">Contactos de Servicios</h2>
+    <p class="directorio-servicios__subtitulo">Directorio de departamentos y personal de contacto del hotel</p>
+  </header>
+
+  <div class="directorio-servicios__contenedor">
+    
+    <div class="directorio-servicios__encabezado-lista">
+      <div class="directorio-servicios__columna directorio-servicios__columna--servicio">Nombre del Servicio</div>
+      <div class="directorio-servicios__columna directorio-servicios__columna--encargado">Encargado del Área</div>
+      <div class="directorio-servicios__columna directorio-servicios__columna--telefono">Extensión / Teléfono</div>
+    </div>
+
+    <div *ngIf="cargando" class="directorio-servicios__mensaje">Cargando contactos...</div>
+    <div *ngIf="mensajeError" class="directorio-servicios__mensaje directorio-servicios__mensaje--error">{{ mensajeError }}</div>
+    <div *ngIf="!cargando && contactos.length === 0" class="directorio-servicios__mensaje">
+      No hay contactos disponibles.
+    </div>
+
+    <div class="directorio-servicios__fila" *ngFor="let contacto of contactos">
+      
+      <div class="directorio-servicios__columna directorio-servicios__columna--servicio">
+        <div class="directorio-servicios__icono-caja">
+          <i class="fas fa-briefcase"></i>
+        </div>
+        <span class="directorio-servicios__texto-principal">{{ contacto.nombreServicio }}</span>
+      </div>
+
+      <div class="directorio-servicios__columna directorio-servicios__columna--encargado">
+        <div class="directorio-servicios__avatar" [style.background-color]="obtenerColorAvatar(contacto.nombreEncargado)">
+          {{ obtenerIniciales(contacto.nombreEncargado) }}
+        </div>
+        <div class="directorio-servicios__info-encargado">
+          <span class="directorio-servicios__texto-principal">{{ contacto.nombreEncargado }}</span>
+          <span class="directorio-servicios__texto-secundario">{{ contacto.rolEncargado }}</span>
+        </div>
+      </div>
+
+      <div class="directorio-servicios__columna directorio-servicios__columna--telefono">
+        <div class="directorio-servicios__telefono-caja">
+          <i class="fas fa-address-card"></i>
+          <span class="directorio-servicios__texto-principal">Tel. {{ contacto.telefono }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

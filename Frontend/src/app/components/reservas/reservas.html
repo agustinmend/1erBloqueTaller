@@ -1,0 +1,43 @@
+<div class="gestion-reservas">
+  
+  <header class="gestion-reservas__cabecera">
+    <h1 class="gestion-reservas__titulo">Gestión de Reservas</h1>
+    <button class="gestion-reservas__boton-nueva" (click)="abrirModal()">
+      + Nueva Reserva
+    </button>
+  </header>
+
+  <div class="gestion-reservas__panel">
+    
+    <article class="gestion-reservas__tarjeta" routerLink="/reservas/agenda">
+      <div class="gestion-reservas__tarjeta-icono gestion-reservas__tarjeta-icono--azul">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="gestion-reservas__tarjeta-contenido">
+        <h3 class="gestion-reservas__tarjeta-titulo">Agenda de Reservas</h3>
+        <p class="gestion-reservas__tarjeta-descripcion">Ver y gestionar todas las reservas, realizar check-in</p>
+      </div>
+    </article>
+
+    <article class="gestion-reservas__tarjeta">
+      <div class="gestion-reservas__tarjeta-icono gestion-reservas__tarjeta-icono--verde">
+        <i class="fas fa-list-ul"></i>
+      </div>
+      <div class="gestion-reservas__tarjeta-contenido">
+        <h3 class="gestion-reservas__tarjeta-titulo">Lista de Reservas</h3>
+        <p class="gestion-reservas__tarjeta-descripcion">Vista general de todas las reservas del hotel</p>
+      </div>
+    </article>
+
+  </div>
+
+</div>
+
+<div class="capa-bloqueo" *ngIf="mostrarModalNuevaReserva">
+  <div class="capa-bloqueo__modal">
+    <app-reserva-form 
+      (cancelarModal)="cerrarModal()" 
+      (guardadoExitoso)="onGuardadoExitoso()">
+    </app-reserva-form>
+  </div>
+</div>

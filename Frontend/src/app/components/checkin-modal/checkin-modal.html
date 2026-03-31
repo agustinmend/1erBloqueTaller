@@ -1,0 +1,105 @@
+<div class="modal-overlay">
+  <div class="modal-checkin">
+    
+    <header class="modal-checkin__cabecera">
+      <h2 class="modal-checkin__titulo">
+        <i class="fas fa-check-circle"></i> Registrar Check-in
+      </h2>
+      <p class="modal-checkin__subtitulo">Complete el registro de ingreso y huéspedes de la habitación</p>
+    </header>
+
+    <div class="modal-checkin__cuerpo">
+      
+      <div *ngIf="cargando" style="text-align: center; padding: 40px; color: #64748b;">
+        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 10px;"></i>
+        <p>Cargando información de la reserva...</p>
+      </div>
+
+      <div *ngIf="mensajeError" class="modal-checkin__alerta-error">
+        <i class="fas fa-exclamation-triangle"></i> {{ mensajeError }}
+      </div>
+
+      <ng-container *ngIf="!cargando && !mensajeError && datosReserva">
+        
+        <div class="modal-checkin__info-reserva">
+          <div class="modal-checkin__info-bloque">
+            <span class="modal-checkin__info-etiqueta">Huésped Titular</span>
+            <span class="modal-checkin__info-valor">{{ datosReserva.titularNombreCompleto }}</span>
+          </div>
+          <div class="modal-checkin__info-bloque">
+            <span class="modal-checkin__info-etiqueta">Habitación</span>
+            <span class="modal-checkin__info-valor">{{ datosReserva.habitacionAsignada }}</span>
+          </div>
+          <div class="modal-checkin__info-bloque">
+            <span class="modal-checkin__info-etiqueta">Capacidad de la Habitación</span>
+            <span class="modal-checkin__info-valor modal-checkin__info-valor--azul">
+              <i class="fas fa-user-friends"></i> {{ datosReserva.capacidad }} persona(s)
+            </span>
+          </div>
+        </div>
+
+        <hr class="modal-checkin__divisor">
+
+        <section class="modal-checkin__seccion">
+          <h3 class="modal-checkin__seccion-titulo">Fecha y Hora de Ingreso</h3>
+          <div class="modal-checkin__grupo-input">
+            <label class="modal-checkin__etiqueta-flotante">Fecha y Hora Real de Ingreso *</label>
+            <input type="datetime-local" class="modal-checkin__input" [(ngModel)]="fechaIngreso">
+          </div>
+          <p class="modal-checkin__texto-ayuda">Esta fecha se guardará en Estadia.FechaLlegada</p>
+        </section>
+
+        <hr class="modal-checkin__divisor">
+
+        <section class="modal-checkin__seccion">
+          <h3 class="modal-checkin__seccion-titulo">Huéspedes en la Habitación</h3>
+          
+          <div class="modal-checkin__lista-huespedes">
+            <div class="modal-checkin__tarjeta-huesped" *ngFor="let h of huespedesSeleccionados">
+              <div class="modal-checkin__huesped-datos">
+                <span class="modal-checkin__huesped-nombre">
+                  {{ h.nombres }} 
+                  <span *ngIf="h.esTitular" class="modal-checkin__badge-titular">Titular</span>
+                </span>
+                <span class="modal-checkin__huesped-doc">Documento: {{ h.nroDocumentoIdentidad }}</span>
+              </div>
+              <button *ngIf="!h.esTitular" class="modal-checkin__boton-remover" (click)="removerHuesped(h.huespedId)">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="modal-checkin__alerta-capacidad" [class.modal-checkin__alerta-capacidad--llena]="capacidadAlcanzada">
+            <i class="fas fa-info-circle"></i> 
+            {{ huespedesSeleccionados.length }} de {{ datosReserva.capacidad }} huésped(es) registrado(s) 
+            <span *ngIf="capacidadAlcanzada">- Capacidad completa</span>
+          </div>
+
+          <div class="modal-checkin__agregar-huesped" *ngIf="!capacidadAlcanzada">
+            <div class="modal-checkin__grupo-input modal-checkin__grupo-input--flex">
+              <i class="fas fa-user-plus modal-checkin__icono-agregar"></i>
+              <select class="modal-checkin__input modal-checkin__input--select" [(ngModel)]="huespedSeleccionadoId">
+                <option value="" disabled selected>Agregar Huésped Adicional...</option>
+                <option *ngFor="let disp of huespedesDisponibles" [value]="disp.huespedId">
+                  {{ disp.nombres }} {{ disp.apellidos }} (Doc: {{ disp.nroDocumentoIdentidad }})
+                </option>
+              </select>
+              <button class="modal-checkin__boton-agregar" [disabled]="!huespedSeleccionadoId" (click)="agregarHuespedAdicional()">
+                Agregar
+              </button>
+            </div>
+          </div>
+
+        </section>
+      </ng-container>
+
+    </div>
+    <footer class="modal-checkin__pie">
+      <button class="modal-checkin__boton modal-checkin__boton--cancelar" (click)="cerrar.emit()">Cancelar</button>
+      <button class="modal-checkin__boton modal-checkin__boton--confirmar" [disabled]="cargando || !fechaIngreso" (click)="confirmarCheckIn()">
+        Confirmar Check-in
+      </button>
+    </footer>
+
+  </div>
+</div>

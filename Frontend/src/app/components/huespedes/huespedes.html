@@ -1,0 +1,53 @@
+<div class="gestion-huespedes">
+  
+  <header class="gestion-huespedes__cabecera">
+    <h1 class="gestion-huespedes__titulo">Gestión de Huéspedes</h1>
+    <button class="gestion-huespedes__boton-nuevo" (click)="abrirModal()">
+      + Nuevo Huésped
+    </button>
+  </header>
+
+  <div class="gestion-huespedes__buscador-contenedor">
+    <div class="gestion-huespedes__buscador-grupo">
+      <i class="icon-search gestion-huespedes__buscador-icono"></i>
+      <input 
+        type="text" 
+        class="gestion-huespedes__buscador-entrada" 
+        placeholder="Buscar por nombre o documento del huésped...">
+    </div>
+  </div>
+
+  <div class="gestion-huespedes__tabla-contenedor">
+    <table class="gestion-huespedes__tabla">
+      <thead class="gestion-huespedes__tabla-cabecera">
+        <tr>
+          <th class="gestion-huespedes__tabla-celda-th">Documento</th>
+          <th class="gestion-huespedes__tabla-celda-th">Nombre Completo</th>
+          <th class="gestion-huespedes__tabla-celda-th">Fecha Nacimiento</th>
+          <th class="gestion-huespedes__tabla-celda-th">Acciones</th>
+        </tr>
+      </thead>
+      <tbody class="gestion-huespedes__tabla-cuerpo">
+        <tr *ngFor="let huesped of huespedesEstaticos" class="gestion-huespedes__tabla-fila">
+          <td class="gestion-huespedes__tabla-celda">{{ huesped.documento }}</td>
+          <td class="gestion-huespedes__tabla-celda gestion-huespedes__tabla-celda--destacada">{{ huesped.nombreCompleto }}</td>
+          <td class="gestion-huespedes__tabla-celda">{{ huesped.fechaNacimiento }}</td>
+          <td class="gestion-huespedes__tabla-celda gestion-huespedes__tabla-celda--acciones">
+            <button class="gestion-huespedes__boton-accion gestion-huespedes__boton-accion--editar">✏️</button>
+            <button class="gestion-huespedes__boton-accion gestion-huespedes__boton-accion--eliminar">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="capa-modal" *ngIf="mostrarModal">
+  <div class="capa-modal__contenido">
+    <app-huesped-form 
+      (cancelarModal)="cerrarModal()" 
+      (guardadoExitoso)="onGuardadoExitoso()">
+    </app-huesped-form>
+  </div>
+</div>

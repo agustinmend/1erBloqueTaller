@@ -1,0 +1,89 @@
+<form class="formulario-huesped" [formGroup]="huespedForm" (ngSubmit)="onSubmit()">
+
+  <header class="formulario-huesped__cabecera">
+    <div class="formulario-huesped__icono">
+      <i class="icon-user-add"></i> 
+    </div>
+    <div class="formulario-huesped__textos">
+      <h2 class="formulario-huesped__titulo">Registrar Nuevo Huésped</h2>
+      <p class="formulario-huesped__subtitulo">Complete los datos del huésped para su registro</p>
+    </div>
+  </header>
+
+  <div class="formulario-huesped__cuerpo">
+    
+    <div *ngIf="errorMessage" class="formulario-huesped__alerta formulario-huesped__alerta--error">
+      {{ errorMessage }}
+    </div>
+
+    <section class="formulario-huesped__seccion">
+      <h3 class="formulario-huesped__titulo-seccion">Información Personal</h3>
+      
+      <div class="formulario-huesped__fila">
+        <div class="formulario-huesped__grupo">
+          <input 
+            type="text" 
+            formControlName="nombres" 
+            class="formulario-huesped__entrada" 
+            [class.formulario-huesped__entrada--error]="huespedForm.get('nombres')?.invalid && huespedForm.get('nombres')?.touched"
+            placeholder="Nombres *">
+        </div>
+
+        <div class="formulario-huesped__grupo">
+          <input 
+            type="text" 
+            formControlName="apellidos" 
+            class="formulario-huesped__entrada" 
+            [class.formulario-huesped__entrada--error]="huespedForm.get('apellidos')?.invalid && huespedForm.get('apellidos')?.touched"
+            placeholder="Apellidos *">
+        </div>
+
+        <div class="formulario-huesped__grupo">
+          <input 
+            type="date" 
+            formControlName="fechaNacimiento" 
+            class="formulario-huesped__entrada" 
+            [class.formulario-huesped__entrada--error]="huespedForm.get('fechaNacimiento')?.invalid && huespedForm.get('fechaNacimiento')?.touched"
+            placeholder="Fecha Nacimiento *">
+        </div>
+      </div>
+    </section>
+
+    <hr class="formulario-huesped__separador">
+
+    <section class="formulario-huesped__seccion">
+      <h3 class="formulario-huesped__titulo-seccion">Documento de Identidad</h3>
+      
+      <div class="formulario-huesped__fila">
+        <div class="formulario-huesped__grupo formulario-huesped__grupo--combinado">
+          <button type="button" class="formulario-huesped__tipo-doc" disabled>T...</button>
+          <input 
+            type="text" 
+            formControlName="nroDocumentoIdentidad" 
+            class="formulario-huesped__entrada formulario-huesped__entrada--anexada" 
+            [class.formulario-huesped__entrada--error]="huespedForm.get('nroDocumentoIdentidad')?.invalid && huespedForm.get('nroDocumentoIdentidad')?.touched"
+            placeholder="Nro Documento *">
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="formulario-huesped__pie">
+    <button 
+      type="button" 
+      class="formulario-huesped__boton formulario-huesped__boton--secundario" 
+      (click)="onCancelar()" 
+      [disabled]="isSubmitting">
+      Cancelar
+    </button>
+    
+    <button 
+      type="submit" 
+      class="formulario-huesped__boton formulario-huesped__boton--primario" 
+      [disabled]="isSubmitting">
+      Guardar Huésped
+    </button>
+  </footer>
+
+</form>

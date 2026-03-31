@@ -1,0 +1,55 @@
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex; justify-content: center; align-items: center; z-index: 1050;
+}
+
+.modal-checkin {
+  background: white; border-radius: 12px; width: 100%; max-width: 800px;
+  max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-checkin__cabecera { background-color: #2563eb; color: white; padding: 24px; border-radius: 12px 12px 0 0; }
+.modal-checkin__titulo { margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.modal-checkin__subtitulo { margin: 8px 0 0 0; font-size: 0.95rem; opacity: 0.9; }
+
+.modal-checkin__cuerpo { padding: 32px; }
+
+.modal-checkin__info-reserva { display: flex; gap: 40px; margin-bottom: 24px; }
+.modal-checkin__info-bloque { display: flex; flex-direction: column; gap: 4px; }
+.modal-checkin__info-etiqueta { font-size: 0.85rem; color: #64748b; font-weight: 500; }
+.modal-checkin__info-valor { font-size: 1rem; color: #1e293b; font-weight: 600; }
+.modal-checkin__info-valor--azul { color: #2563eb; }
+
+.modal-checkin__divisor { border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0; }
+
+.modal-checkin__seccion-titulo { font-size: 1.1rem; color: #1e293b; margin-bottom: 16px; font-weight: 600; }
+
+.modal-checkin__grupo-input { position: relative; margin-bottom: 8px; border: 1px solid #cbd5e1; border-radius: 8px; padding: 8px 16px; }
+.modal-checkin__grupo-input--flex { display: flex; align-items: center; padding: 4px; border: none; }
+.modal-checkin__etiqueta-flotante { position: absolute; top: -10px; left: 12px; background: white; padding: 0 4px; font-size: 0.75rem; color: #64748b; }
+.modal-checkin__input { width: 100%; border: none; outline: none; font-size: 1rem; color: #1e293b; padding: 8px 0; background: transparent; }
+.modal-checkin__input--select { border: 1px solid #2563eb; border-radius: 6px; padding: 12px; margin-right: 12px; }
+.modal-checkin__texto-ayuda { font-size: 0.8rem; color: #94a3b8; margin: 0; }
+
+.modal-checkin__lista-huespedes { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.modal-checkin__tarjeta-huesped { background-color: #fffbeb; border: 1px solid #fde68a; padding: 16px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+.modal-checkin__huesped-datos { display: flex; flex-direction: column; gap: 4px; }
+.modal-checkin__huesped-nombre { font-weight: 600; color: #1e293b; display: flex; align-items: center; gap: 10px; }
+.modal-checkin__huesped-doc { font-size: 0.85rem; color: #64748b; }
+.modal-checkin__badge-titular { background-color: #fef3c7; color: #d97706; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.modal-checkin__boton-remover { background: transparent; border: none; color: #ef4444; font-size: 1.2rem; cursor: pointer; }
+
+.modal-checkin__alerta-capacidad { padding: 12px 16px; border-radius: 8px; background-color: #f8fafc; color: #64748b; font-size: 0.9rem; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
+.modal-checkin__alerta-capacidad--llena { background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; font-weight: 500; }
+.modal-checkin__alerta-error { background-color: #fef2f2; color: #ef4444; padding: 16px; border-radius: 8px; border: 1px solid #fecaca; margin-bottom: 16px; }
+
+.modal-checkin__icono-agregar { color: #2563eb; margin-right: 12px; font-size: 1.2rem; }
+.modal-checkin__boton-agregar { background-color: #e2e8f0; color: #475569; border: none; padding: 12px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.modal-checkin__boton-agregar:not([disabled]) { background-color: #2563eb; color: white; }
+
+.modal-checkin__pie { padding: 24px; display: flex; justify-content: flex-end; gap: 16px; background-color: #f8fafc; border-top: 1px solid #e2e8f0; border-radius: 0 0 12px 12px; }
+.modal-checkin__boton { padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 1rem; }
+.modal-checkin__boton--cancelar { background-color: white; border: 1px solid #cbd5e1; color: #475569; }
+.modal-checkin__boton--confirmar { background-color: #2563eb; color: white; }
+.modal-checkin__boton--confirmar:disabled { opacity: 0.5; cursor: not-allowed; }

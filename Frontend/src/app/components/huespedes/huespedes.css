@@ -1,0 +1,158 @@
+.gestion-huespedes {
+  padding: 32px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.gestion-huespedes__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.gestion-huespedes__titulo {
+  font-size: 2rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 600;
+}
+
+.gestion-huespedes__boton-nuevo {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.gestion-huespedes__boton-nuevo:hover {
+  background-color: #1d4ed8;
+}
+
+.gestion-huespedes__buscador-contenedor {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.gestion-huespedes__buscador-grupo {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.gestion-huespedes__buscador-icono {
+  position: absolute;
+  left: 16px;
+  color: #64748b;
+}
+
+.gestion-huespedes__buscador-entrada {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.gestion-huespedes__buscador-entrada:focus {
+  border-color: #2563eb;
+}
+
+/* Tabla */
+.gestion-huespedes__tabla-contenedor {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.gestion-huespedes__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.gestion-huespedes__tabla-celda-th {
+  padding: 16px 24px;
+  background-color: #ffffff;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.gestion-huespedes__tabla-fila {
+  transition: background-color 0.2s;
+}
+
+.gestion-huespedes__tabla-fila:hover {
+  background-color: #f8fafc;
+}
+
+.gestion-huespedes__tabla-celda {
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.gestion-huespedes__tabla-celda--destacada {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.gestion-huespedes__tabla-celda--acciones {
+  display: flex;
+  gap: 16px;
+}
+
+.gestion-huespedes__boton-accion {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  padding: 4px;
+  transition: transform 0.2s;
+}
+
+.gestion-huespedes__boton-accion:hover {
+  transform: scale(1.1);
+}
+
+.gestion-huespedes__boton-accion--editar {
+  color: #2563eb;
+}
+
+.gestion-huespedes__boton-accion--eliminar {
+  color: #ef4444;
+}
+
+.capa-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.capa-modal__contenido {
+  width: 100%;
+  max-width: 700px;
+}

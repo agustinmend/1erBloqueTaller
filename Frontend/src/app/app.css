@@ -1,0 +1,17 @@
+.contenedor-maestro {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+app-barra-lateral {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.contenedor-maestro__area-dinamica {
+  flex-grow: 1;
+  overflow-y: auto;
+  position: relative;
+}

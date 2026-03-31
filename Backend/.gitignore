@@ -1,0 +1,32 @@
+# ==========================================
+# .NET CORE / VISUAL STUDIO / RIDER
+# Archivo a nivel de Solución (.sln)
+# ==========================================
+
+# 1. Binarios y carpetas de compilación (Aplica a las 4 capas)
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# 2. Archivos de caché de Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# 3. Archivos temporales de Mac/Windows (Si trabajas en equipo)
+.DS_Store
+Thumbs.db
+
+# 4. Logs y volcados de errores
+*.log
+logs/
+crash_dumps/
+
+# 5. Entornos locales y secretos (CRÍTICO)
+# Ignora el appsettings.Development.json si tienes contraseñas reales ahí.
+# Si usas variables de entorno o User Secrets, puedes dejarlo comentado.
+# Hotel.API/appsettings.Development.json
+# appsettings.Local.json

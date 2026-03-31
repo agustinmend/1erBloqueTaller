@@ -1,0 +1,127 @@
+.directorio-servicios {
+  padding: 32px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.directorio-servicios__cabecera {
+  margin-bottom: 24px;
+}
+
+.directorio-servicios__titulo {
+  font-size: 2rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin: 0;
+}
+
+.directorio-servicios__subtitulo {
+  color: #64748b;
+  margin-top: 8px;
+  font-size: 0.95rem;
+}
+
+.directorio-servicios__contenedor {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+.directorio-servicios__encabezado-lista {
+  display: flex;
+  padding: 16px 24px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.directorio-servicios__fila {
+  display: flex;
+  padding: 16px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.directorio-servicios__fila:hover {
+  background-color: #f8fafc;
+}
+
+.directorio-servicios__fila:last-child {
+  border-bottom: none;
+}
+
+.directorio-servicios__columna {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.directorio-servicios__columna--servicio { flex: 1; min-width: 250px; }
+.directorio-servicios__columna--encargado { flex: 1.5; min-width: 300px; }
+.directorio-servicios__columna--telefono { flex: 0.5; min-width: 150px; justify-content: flex-end; }
+
+.directorio-servicios__texto-principal {
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.directorio-servicios__texto-secundario {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 4px;
+}
+
+.directorio-servicios__icono-caja {
+  width: 40px;
+  height: 40px;
+  background-color: #eff6ff;
+  color: #3b82f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.directorio-servicios__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+.directorio-servicios__info-encargado {
+  display: flex;
+  flex-direction: column;
+}
+
+.directorio-servicios__telefono-caja {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+}
+
+.directorio-servicios__mensaje {
+  padding: 40px;
+  text-align: center;
+  color: #64748b;
+}
+
+.directorio-servicios__mensaje--error {
+  color: #ef4444;
+}

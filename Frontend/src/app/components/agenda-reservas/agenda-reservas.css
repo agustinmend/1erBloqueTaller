@@ -1,0 +1,187 @@
+.agenda-reservas {
+  padding: 32px;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.agenda-reservas__cabecera {
+  margin-bottom: 24px;
+}
+
+.agenda-reservas__titulo {
+  font-size: 2rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin: 0;
+}
+
+.agenda-reservas__buscador-contenedor {
+  position: relative;
+  max-width: 600px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+
+.agenda-reservas__boton {
+    background-color: #e2e8f0;
+    color: #475569;
+}
+
+.agenda-reservas__buscador-icono {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.agenda-reservas__buscador-entrada {
+  width: 100%;
+  padding: 12px 16px 12px 48px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.agenda-reservas__buscador-entrada:focus {
+  border-color: #2563eb;
+}
+
+/* Tabla */
+.agenda-reservas__tabla-contenedor {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  overflow-x: auto;
+}
+
+.agenda-reservas__tabla {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.agenda-reservas__tabla-th {
+  padding: 16px 24px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #f1f5f9;
+  white-space: nowrap;
+}
+
+.agenda-reservas__tabla-th--centro,
+.agenda-reservas__celda--centro {
+  text-align: center;
+}
+
+.agenda-reservas__fila {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+}
+
+.agenda-reservas__fila:hover {
+  background-color: #f8fafc;
+}
+
+.agenda-reservas__fila:last-child {
+  border-bottom: none;
+}
+
+.agenda-reservas__celda {
+  padding: 20px 24px;
+  color: #64748b;
+  font-size: 0.875rem;
+  vertical-align: middle;
+}
+
+.agenda-reservas__celda-vacia {
+  text-align: center;
+  padding: 40px;
+  color: #94a3b8;
+}
+
+.agenda-reservas__celda--destacada {
+  color: #334155;
+  font-weight: 500;
+  max-width: 150px;
+}
+
+.agenda-reservas__celda--negrita {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.agenda-reservas__celda--precio {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.agenda-reservas__estado {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.agenda-reservas__estado--cancelada {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+}
+
+.agenda-reservas__estado--en-curso {
+  background-color: #ecfdf5;
+  color: #10b981;
+  border: 1px solid #a7f3d0;
+}
+
+.agenda-reservas__estado--confirmada {
+  background-color: #ffffff;
+  color: #3b82f6;
+  border: 1px solid #bfdbfe;
+}
+
+.agenda-reservas__boton {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.agenda-reservas__boton--primario {
+  background-color: #2563eb;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.agenda-reservas__boton--primario:hover {
+  background-color: #1d4ed8;
+}
+
+.agenda-reservas__boton--deshabilitado {
+  background-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.agenda-reservas__accion-texto {
+  color: #cbd5e1;
+}
