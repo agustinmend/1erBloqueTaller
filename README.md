@@ -6,6 +6,8 @@ Este proyecto es un prototipo funcional de un sistema para la gestión de un hot
 ---
 
 ## 2. Arquitectura Utilizada
+<img width="1358" height="515" alt="image" src="https://github.com/user-attachments/assets/bd6f2090-dc74-4b46-9c81-2db1e0cc68c4" />
+
 El sistema implementa una arquitectura distribuida (Cliente-Servidor) y el backend sigue un patrón estricto de Arquitectura en N-Capas para garantizar la separación de responsabilidades.
 
 ### Frontend (Single Page Application)
