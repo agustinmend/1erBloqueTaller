@@ -92,7 +92,8 @@ namespace Hotel.Repository.Implementaciones
                         @Termino IS NULL OR 
                         h.Nombres LIKE '%' + @Termino + '%' OR 
                         h.Apellidos LIKE '%' + @Termino + '%' OR 
-                        h.NroDocumentoIdentidad LIKE '%' + @Termino + '%'
+                        h.NroDocumentoIdentidad LIKE '%' + @Termino + '%' OR
+                        hab.Tipo Like '%' + @Termino + '%'
                         )
                 ORDER BY r.FechaInicio ASC";
             string? terminoProcesado = string.IsNullOrWhiteSpace(terminoBusqueda) ? null : terminoBusqueda.Trim();
