@@ -3,6 +3,7 @@ using Hotel.Models.Entidades;
 using Hotel.Models.Patrones;
 using Hotel.Repository.Interfaces;
 using Hotel.Services.Interfaces;
+using Hotel.Services.Validadaciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,7 @@ namespace Hotel.Services.Implementaciones
         public async Task<int> CrearReservaAsync(CrearReservaDto dto)
         {
             IVariacionHabitacion variacion = VariacionHabitacionFactory.CrearVariacion(dto.TipoHabitacion);
-            if(dto.CantidadPersonas > variacion.CapacidadBase)
-            {
-                throw new InvalidOperationException($"La cantidad de personas ({dto.CantidadPersonas}) supera la capacidad maxima de la habitacion tipo {variacion.Tipo} ({variacion.CapacidadBase})");
-            }
+            ValidadorReserva.ValidarCapacidad(dto.CantidadPersonas, variacion.CapacidadBase, variacion.Tipo);
             int? HabitacionIdAsignada = await _reservaRepository.BuscarHabitacionDisponibleAsync(
                 variacion.Tipo,
                 dto.CantidadPersonas,
@@ -35,9 +33,7 @@ namespace Hotel.Services.Implementaciones
             {
                 throw new InvalidOperationException($"No hay habitaciones fisicas disponibles de tipo {variacion.Tipo} para las fechas y capacidad solicitada");
             }
-            int cantidadNoches = (dto.FechaFin - dto.FechaInicio).Days;
-            if (cantidadNoches <= 0) cantidadNoches = 1;
-            decimal precioTotalCobrado = variacion.PrecioPorNoche * cantidadNoches;
+            decimal precioTotalCobrado = ValidadorReserva.CalcularPrecioTotal(variacion.PrecioPorNoche, dto.FechaInicio, dto.FechaFin);
 
             var reserva = new Reserva
             {
