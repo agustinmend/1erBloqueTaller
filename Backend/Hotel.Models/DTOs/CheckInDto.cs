@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hotel.Models.DTOs
 {
@@ -17,6 +14,6 @@ namespace Hotel.Models.DTOs
 
         [Required(ErrorMessage = "Debe haber al menos un huésped para el check-in.")]
         [MinLength(1, ErrorMessage = "Debe registrar al menos al titular.")]
-        public List<int> HuespedesIds { get; set; } = new List<int>();
+        public List<int> HuespedesIds { get; init; } = [];
     }
 }

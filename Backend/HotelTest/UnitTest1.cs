@@ -1,5 +1,5 @@
 namespace HotelTest
-{
+{/*
     public class Tests
     {
         [SetUp]
@@ -13,4 +13,4 @@ namespace HotelTest
             Assert.Pass();
         }
     }
-}
+*/}

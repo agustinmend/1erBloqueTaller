@@ -6,10 +6,6 @@ using Hotel.Services.Interfaces;
 using Hotel.Services.Validadaciones;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.Pkcs;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hotel.Services.Implementaciones
 {
@@ -24,12 +20,12 @@ namespace Hotel.Services.Implementaciones
         {
             IVariacionHabitacion variacion = VariacionHabitacionFactory.CrearVariacion(dto.TipoHabitacion);
             ValidadorReserva.ValidarCapacidad(dto.CantidadPersonas, variacion.CapacidadBase, variacion.Tipo);
-            int? HabitacionIdAsignada = await _reservaRepository.BuscarHabitacionDisponibleAsync(
+            int? habitacionIdAsignada = await _reservaRepository.BuscarHabitacionDisponibleAsync(
                 variacion.Tipo,
                 dto.CantidadPersonas,
                 dto.FechaInicio,
                 dto.FechaFin);
-            if(!HabitacionIdAsignada.HasValue)
+            if(!habitacionIdAsignada.HasValue)
             {
                 throw new InvalidOperationException($"No hay habitaciones fisicas disponibles de tipo {variacion.Tipo} para las fechas y capacidad solicitada");
             }
@@ -44,7 +40,7 @@ namespace Hotel.Services.Implementaciones
             };
             var detalle = new ReservaHabitacion
             {
-                HabitacionId = HabitacionIdAsignada.Value,
+                HabitacionId = habitacionIdAsignada.Value,
                 PrecioCobrado = precioTotalCobrado
             };
             return await _reservaRepository.CrearReservaAsync(reserva, detalle);

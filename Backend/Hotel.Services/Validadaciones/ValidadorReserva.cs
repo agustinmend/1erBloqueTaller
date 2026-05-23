@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.Services.Validadaciones
 {
-    public class ValidadorReserva
+    public static class ValidadorReserva
     {
         public static void ValidarCapacidad(int cantidadPersonas, int capacidadMaxima, string tipoHabitacion)
         {
