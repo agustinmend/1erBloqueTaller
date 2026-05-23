@@ -291,9 +291,10 @@ var assemblies = [
     "name": "Hotel.Services",
     "classes": [
       { "name": "Hotel.Services.Implementaciones.DepartamentoService", "rp": "Hotel.Services_DepartamentoService.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Implementaciones.EstadiaService", "rp": "Hotel.Services_EstadiaService.html", "cl": 0, "ucl": 20, "cal": 20, "tl": 39, "cb": 0, "tb": 10, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Implementaciones.EstadiaService", "rp": "Hotel.Services_EstadiaService.html", "cl": 0, "ucl": 23, "cal": 23, "tl": 34, "cb": 0, "tb": 12, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "Hotel.Services.Implementaciones.HuespedService", "rp": "Hotel.Services_HuespedService.html", "cl": 0, "ucl": 19, "cal": 19, "tl": 38, "cb": 0, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Implementaciones.ReservaService", "rp": "Hotel.Services_ReservaService.html", "cl": 15, "ucl": 18, "cal": 33, "tl": 57, "cb": 1, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Implementaciones.ReservaService", "rp": "Hotel.Services_ReservaService.html", "cl": 20, "ucl": 20, "cal": 40, "tl": 53, "cb": 2, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Validadaciones.ValidadorCheckIn", "rp": "Hotel.Services_ValidadorCheckIn.html", "cl": 2, "ucl": 6, "cal": 8, "tl": 23, "cb": 1, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
       { "name": "Hotel.Services.Validadaciones.ValidadorReserva", "rp": "Hotel.Services_ValidadorReserva.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 32, "cb": 5, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];

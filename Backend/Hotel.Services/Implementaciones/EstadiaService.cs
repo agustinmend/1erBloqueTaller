@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.Services.Validadaciones;
 
 namespace Hotel.Services.Implementaciones
 {
@@ -20,13 +21,7 @@ namespace Hotel.Services.Implementaciones
         {
             var datos = await _estadiaRepository.ObtenerDatosValidacionCheckInAsync(dto.ReservaId);
             if(datos == null) throw new KeyNotFoundException("La reserva no existe.");
-            if (datos.Value.Estado == "Cancelada") throw new InvalidOperationException("No se puede hacer check-in en una reserva cancelada");
-            if (datos.Value.Estado == "Estadía en curso") throw new InvalidOperationException("Esta reserva ya hizo check-in");
-            var huespedesUnicos = dto.HuespedesIds.ToHashSet();
-            if(huespedesUnicos.Count > datos.Value.Capacidad)
-            {
-                throw new InvalidOperationException($"La cantidad de huespedes ({huespedesUnicos.Count}) supera la capacidad ({datos.Value.Capacidad})");
-            }
+            ValidadorCheckIn.ValidarDtos(datos.Value.Estado, datos.Value.Capacidad, datos.Value.HabitacionId, dto.HuespedesIds);
             return await _estadiaRepository.RegistrarCheckInTransaccionalAsync(dto, datos.Value.HabitacionId);
         }
         public async Task<PreCheckInInDto> ObtenerDatosPreCheckInAsync(int reservaId)
