@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl: 'http://localhost:5165/api'
-}
+    apiUrl: 'https://hotel-backend-3plj.onrender.com/api'
+};
