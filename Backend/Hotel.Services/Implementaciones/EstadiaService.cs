@@ -19,11 +19,21 @@ namespace Hotel.Services.Implementaciones
         }
         public async Task<int> ProcesarCheckInAsync(CheckInDto dto)
         {
-            var datos = await _estadiaRepository.ObtenerDatosValidacionCheckInAsync(dto.ReservaId);
-            //if(datos == null) throw new KeyNotFoundException("La reserva no existe.");
-            ValidadorCheckIn.ValidarDtos(datos.Value.Estado, datos.Value.Capacidad, datos.Value.HabitacionId, dto.HuespedesIds);
-            return await _estadiaRepository.RegistrarCheckInTransaccionalAsync(dto, datos.Value.HabitacionId);
+            var datos = await ObtenerYValidarReservaAsync(dto.ReservaId);
+            ValidadorCheckIn.ValidarDtos(datos.Estado, datos.Capacidad, datos.HabitacionId, dto.HuespedesIds);
+            return await _estadiaRepository.RegistrarCheckInTransaccionalAsync(dto, datos.HabitacionId);
         }
+
+        private async Task<(string Estado, int Capacidad, int HabitacionId)> ObtenerYValidarReservaAsync(int reservaId)
+        {
+            var datos = await _estadiaRepository.ObtenerDatosValidacionCheckInAsync(reservaId);
+            if (datos == null) 
+            {
+                throw new KeyNotFoundException("La reserva no existe.");
+            }
+            return datos.Value;
+        }
+
         public async Task<PreCheckInInDto> ObtenerDatosPreCheckInAsync(int reservaId)
         {
             var datos = await _estadiaRepository.ObtenerDatosPreCheckInAsync(reservaId);
