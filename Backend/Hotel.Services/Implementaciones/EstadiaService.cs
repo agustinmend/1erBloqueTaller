@@ -20,7 +20,7 @@ namespace Hotel.Services.Implementaciones
         public async Task<int> ProcesarCheckInAsync(CheckInDto dto)
         {
             var datos = await _estadiaRepository.ObtenerDatosValidacionCheckInAsync(dto.ReservaId);
-            if(datos == null) throw new KeyNotFoundException("La reserva no existe.");
+            //if(datos == null) throw new KeyNotFoundException("La reserva no existe.");
             ValidadorCheckIn.ValidarDtos(datos.Value.Estado, datos.Value.Capacidad, datos.Value.HabitacionId, dto.HuespedesIds);
             return await _estadiaRepository.RegistrarCheckInTransaccionalAsync(dto, datos.Value.HabitacionId);
         }
