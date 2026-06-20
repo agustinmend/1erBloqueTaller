@@ -34,5 +34,28 @@ namespace Hotel.Tests.Services
             Assert.That(excepcion.Message, Is.EqualTo("La reserva no existe."));
             mockRepo.Verify(r => r.RegistrarCheckInTransaccionalAsync(It.IsAny<CheckInDto>(), It.IsAny<int>()), Times.Never);
         }
+        [Test]
+        public async Task ProcesarCheckInAsync_DatosCompletosYValidos_EjecutaTransaccionYRetornaId()
+        {
+            var mockRepo = new Mock<IEstadiaRepository>();
+            var service = new EstadiaService(mockRepo.Object);
+            var dtoValido = new CheckInDto
+            {
+                ReservaId = 99,
+                FechaLlegada = DateTime.Now,
+                HuespedesIds = new List<int> { 1, 2 }
+            };
+            (string Estado, int Capacidad, int HabitacionId)? reservaValida = ("Confirmada", 2, 101);
+            
+            mockRepo.Setup(r => r.ObtenerDatosValidacionCheckInAsync(dtoValido.ReservaId))
+                    .ReturnsAsync(reservaValida);
+
+            mockRepo.Setup(r => r.RegistrarCheckInTransaccionalAsync(dtoValido, 101))
+                    .ReturnsAsync(1);
+
+            var resultadoId = await service.ProcesarCheckInAsync(dtoValido);
+            Assert.That(resultadoId, Is.EqualTo(1));
+            mockRepo.Verify(r => r.RegistrarCheckInTransaccionalAsync(dtoValido, 101), Times.Once);
+        }
     }
 }

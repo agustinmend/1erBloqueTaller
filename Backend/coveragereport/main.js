@@ -291,11 +291,12 @@ var assemblies = [
     "name": "Hotel.Services",
     "classes": [
       { "name": "Hotel.Services.Implementaciones.DepartamentoService", "rp": "Hotel.Services_DepartamentoService.html", "cl": 0, "ucl": 7, "cal": 7, "tl": 24, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Implementaciones.EstadiaService", "rp": "Hotel.Services_EstadiaService.html", "cl": 0, "ucl": 23, "cal": 23, "tl": 34, "cb": 0, "tb": 12, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Implementaciones.HuespedService", "rp": "Hotel.Services_HuespedService.html", "cl": 0, "ucl": 19, "cal": 19, "tl": 38, "cb": 0, "tb": 2, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Implementaciones.ReservaService", "rp": "Hotel.Services_ReservaService.html", "cl": 20, "ucl": 20, "cal": 40, "tl": 53, "cb": 2, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Validadaciones.ValidadorCheckIn", "rp": "Hotel.Services_ValidadorCheckIn.html", "cl": 2, "ucl": 6, "cal": 8, "tl": 23, "cb": 1, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "Hotel.Services.Validadaciones.ValidadorReserva", "rp": "Hotel.Services_ValidadorReserva.html", "cl": 13, "ucl": 0, "cal": 13, "tl": 32, "cb": 5, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Implementaciones.EstadiaService", "rp": "Hotel.Services_EstadiaService.html", "cl": 16, "ucl": 12, "cal": 28, "tl": 44, "cb": 2, "tb": 14, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Implementaciones.HuespedService", "rp": "Hotel.Services_HuespedService.html", "cl": 17, "ucl": 7, "cal": 24, "tl": 43, "cb": 1, "tb": 4, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Implementaciones.ReservaService", "rp": "Hotel.Services_ReservaService.html", "cl": 34, "ucl": 7, "cal": 41, "tl": 54, "cb": 4, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Validadaciones.ValidadorCheckIn", "rp": "Hotel.Services_ValidadorCheckIn.html", "cl": 6, "ucl": 2, "cal": 8, "tl": 23, "cb": 4, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Validadaciones.ValidadorCrearHuesped", "rp": "Hotel.Services_ValidadorCrearHuesped.html", "cl": 6, "ucl": 2, "cal": 8, "tl": 26, "cb": 4, "tb": 6, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "Hotel.Services.Validadaciones.ValidadorReserva", "rp": "Hotel.Services_ValidadorReserva.html", "cl": 18, "ucl": 0, "cal": 18, "tl": 40, "cb": 7, "tb": 8, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 

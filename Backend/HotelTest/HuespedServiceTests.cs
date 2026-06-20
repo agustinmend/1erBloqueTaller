@@ -30,5 +30,30 @@ namespace Hotel.Tests.Services
             
             mockRepo.Verify(r => r.CrearHuespedAsync(It.IsAny<Hotel.Models.Entidades.Huesped>()), Times.Never);
         }
+
+        [Test]
+        public async Task RegistrarHuespedAsync_DatosCompletosYValidos_RetornaNuevoId()
+        {
+            var mockRepo = new Mock<IHuespedRepository>();
+            var service = new HuespedService(mockRepo.Object);
+            
+            var dtoValido = new CrearHuespedDto 
+            { 
+                Nombres = "Jose Agustin", 
+                Apellidos = "Mendoza", 
+                FechaNacimiento = new DateTime(2000, 1, 1),
+                NroDocumentoIdentidad = "1234567" 
+            };
+            mockRepo.Setup(r => r.ExisteDocumentoAsync(dtoValido.NroDocumentoIdentidad))
+                    .ReturnsAsync(false);
+            
+            mockRepo.Setup(r => r.CrearHuespedAsync(It.IsAny<Hotel.Models.Entidades.Huesped>()))
+                    .ReturnsAsync(10);
+
+            var resultadoId = await service.RegistrarHuespedAsync(dtoValido);
+
+            Assert.That(resultadoId, Is.EqualTo(10));
+            mockRepo.Verify(r => r.CrearHuespedAsync(It.IsAny<Hotel.Models.Entidades.Huesped>()), Times.Once);
+        }
     }
 }

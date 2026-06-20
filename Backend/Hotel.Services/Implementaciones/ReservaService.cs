@@ -6,6 +6,7 @@ using Hotel.Services.Interfaces;
 using Hotel.Services.Validadaciones;
 using System;
 using System.Collections.Generic;
+using Hotel.Models.Constantes;
 
 namespace Hotel.Services.Implementaciones
 {
@@ -37,7 +38,7 @@ namespace Hotel.Services.Implementaciones
                 TitularId = dto.TitularId,
                 FechaInicio = dto.FechaInicio,
                 FechaFin = dto.FechaFin,
-                Estado = "Confirmada"
+                Estado = EstadosReserva.Confirmada
             };
             var detalle = new ReservaHabitacion
             {

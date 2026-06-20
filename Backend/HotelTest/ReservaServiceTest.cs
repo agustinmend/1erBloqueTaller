@@ -67,5 +67,32 @@ namespace HotelTest
             Assert.That(excepcion.Message, Is.EqualTo("La fecha de salida debe ser estrictamente posterior a la fecha de ingreso."));   
             mockRepo.Verify(r => r.CrearReservaAsync(It.IsAny<Reserva>(), It.IsAny<ReservaHabitacion>()), Times.Never);
         }
+
+        [Test]
+        public async Task CrearReservaAsync_DisponibilidadConfirmada_RegistraReservaYRetornaId()
+        {
+            var mockRepo = new Mock<IReservaRepository>();
+            var service = new ReservaService(mockRepo.Object);            
+            var dtoValido = new CrearReservaDto
+            {
+                TitularId = 1,
+                TipoHabitacion = "Simple",
+                CantidadPersonas = 1,
+                FechaInicio = DateTime.Today.AddDays(1),
+                FechaFin = DateTime.Today.AddDays(3),
+                Estado = "Confirmada"
+            };
+
+            mockRepo.Setup(r => r.BuscarHabitacionDisponibleAsync(
+                It.IsAny<string>(), It.IsAny<int>(), It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+                .ReturnsAsync(101);
+
+            mockRepo.Setup(r => r.CrearReservaAsync(It.IsAny<Reserva>(), It.IsAny<ReservaHabitacion>()))
+                .ReturnsAsync(5);
+
+            var resultadoId = await service.CrearReservaAsync(dtoValido);
+            Assert.That(resultadoId, Is.EqualTo(5));
+            mockRepo.Verify(r => r.CrearReservaAsync(It.IsAny<Reserva>(), It.IsAny<ReservaHabitacion>()), Times.Once);
+        }
     }
 }
