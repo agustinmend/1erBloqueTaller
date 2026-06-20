@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hotel.Services.Validadaciones;
 
 namespace Hotel.Services.Implementaciones
 {
@@ -19,12 +20,11 @@ namespace Hotel.Services.Implementaciones
         }
         public async Task<int> RegistrarHuespedAsync(CrearHuespedDto dto)
         {
-            if (string.IsNullOrWhiteSpace(dto.Nombres))
-            {
-                throw new ArgumentException("El nombre del huésped es obligatorio.");
-            }
+            ValidadorCrearHuesped.ValidarDatosObligatorios(dto);
+
             bool existe = await _huespedRepository.ExisteDocumentoAsync(dto.NroDocumentoIdentidad);
             if (existe) throw new InvalidOperationException("Ya existe un Huesped con este Documento de identidad");
+
             var huesped = new Huesped
             {
                 Nombres = dto.Nombres,
@@ -34,6 +34,7 @@ namespace Hotel.Services.Implementaciones
             };
             return await _huespedRepository.CrearHuespedAsync(huesped);
         }
+
         public async Task<IEnumerable<Huesped>> ObtenerTodosAsync()
         {
             return await _huespedRepository.ListarHuespedesAsync();
