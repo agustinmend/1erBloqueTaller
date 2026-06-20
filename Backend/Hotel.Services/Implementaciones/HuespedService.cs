@@ -19,6 +19,10 @@ namespace Hotel.Services.Implementaciones
         }
         public async Task<int> RegistrarHuespedAsync(CrearHuespedDto dto)
         {
+            if (string.IsNullOrWhiteSpace(dto.Nombres))
+            {
+                throw new ArgumentException("El nombre del huésped es obligatorio.");
+            }
             bool existe = await _huespedRepository.ExisteDocumentoAsync(dto.NroDocumentoIdentidad);
             if (existe) throw new InvalidOperationException("Ya existe un Huesped con este Documento de identidad");
             var huesped = new Huesped
