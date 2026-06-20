@@ -3,6 +3,7 @@ using Moq;
 using Hotel.Services.Implementaciones;
 using Hotel.Repository.Interfaces;
 using Hotel.Models.DTOs;
+using Hotel.Models.Entidades;
 using System;
 using System.Threading.Tasks;
 
@@ -43,6 +44,28 @@ namespace HotelTest
                 await _reservaService.CrearReservaAsync(dto));
             Assert.That(ex.Message, Does.Contain("No hay habitaciones fisicas disponibles"));
             _reservaRepositoryMock.Verify(repo => repo.CrearReservaAsync(It.IsAny<Hotel.Models.Entidades.Reserva>(), It.IsAny<Hotel.Models.Entidades.ReservaHabitacion>()), Times.Never);
+        }
+
+        [Test]
+        public void CrearReservaAsync_FechasIncongruentes_LanzaArgumentException()
+        {
+            var mockRepo = new Mock<IReservaRepository>();
+            var service = new ReservaService(mockRepo.Object); 
+            
+            var dtoInvalido = new CrearReservaDto
+            {
+                TitularId = 1,
+                TipoHabitacion = "Simple",
+                CantidadPersonas = 1,
+                FechaInicio = DateTime.Today,
+                FechaFin = DateTime.Today.AddDays(-1)
+            };
+
+            var excepcion = Assert.ThrowsAsync<ArgumentException>(() => 
+                service.CrearReservaAsync(dtoInvalido));
+                
+            Assert.That(excepcion.Message, Is.EqualTo("La fecha de salida debe ser estrictamente posterior a la fecha de ingreso."));   
+            mockRepo.Verify(r => r.CrearReservaAsync(It.IsAny<Reserva>(), It.IsAny<ReservaHabitacion>()), Times.Never);
         }
     }
 }

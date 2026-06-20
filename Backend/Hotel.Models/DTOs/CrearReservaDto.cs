@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Hotel.Models.DTOs
 {
-    public class CrearReservaDto : IValidatableObject
+    public class CrearReservaDto //: IValidatableObject
     {
         [Required(ErrorMessage = "El Titular es obligatorio.")]
         public int TitularId { get; set; }
@@ -28,7 +28,7 @@ namespace Hotel.Models.DTOs
         [Range(1, 20, ErrorMessage = "La cantidad de personas debe ser mayor a 0.")]
         public int CantidadPersonas { get; set; }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+/*        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (FechaFin <= FechaInicio)
             {
@@ -44,6 +44,6 @@ namespace Hotel.Models.DTOs
                     new[] { nameof(FechaInicio) }
                 );
             }
-        }
+        }*/
     }
 }
