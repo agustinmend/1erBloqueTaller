@@ -9,7 +9,7 @@ namespace Hotel.Services.Validadaciones
 {
     public static class ValidadorCheckIn
     {
-        public static void ValidarDtos(string Estado, int Capacidad, int HabitacionId, List<int> HuespedesIds)
+        public static void ValidarDtos(string Estado, int Capacidad, List<int> HuespedesIds)
         {
             if (Estado == "Cancelada") throw new InvalidOperationException("No se puede hacer check-in en una reserva cancelada");
             if (Estado == "Estadía en curso") throw new InvalidOperationException("Esta reserva ya hizo check-in");

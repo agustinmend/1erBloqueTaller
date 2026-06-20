@@ -18,10 +18,9 @@ namespace HotelTest
         {
             string Estado = "Cancelada";
             int Capacidad = 1;
-            int HabitacionId = 1;
             List<int> HuespedesIds = [1, 2];
             var ex = Assert.Throws<InvalidOperationException>(() =>
-                ValidadorCheckIn.ValidarDtos(Estado, Capacidad, HabitacionId, HuespedesIds));
+                ValidadorCheckIn.ValidarDtos(Estado, Capacidad, HuespedesIds));
             Assert.That(ex.Message, Does.Contain("No se puede hacer check-in en una reserva cancelada"));
      
         }

@@ -20,7 +20,7 @@ namespace Hotel.Services.Implementaciones
         public async Task<int> ProcesarCheckInAsync(CheckInDto dto)
         {
             var datos = await ObtenerYValidarReservaAsync(dto.ReservaId);
-            ValidadorCheckIn.ValidarDtos(datos.Estado, datos.Capacidad, datos.HabitacionId, dto.HuespedesIds);
+            ValidadorCheckIn.ValidarDtos(datos.Estado, datos.Capacidad, dto.HuespedesIds);
             return await _estadiaRepository.RegistrarCheckInTransaccionalAsync(dto, datos.HabitacionId);
         }
 
