@@ -18,6 +18,61 @@
           "locations": [
             {
               "resultFile": {
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "region": {
+                  "startLine": 20,
+                  "startColumn": 33,
+                  "endLine": 20,
+                  "endColumn": 87
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8618",
+          "level": "warning",
+          "message": "El elemento campo \"_connectionString\" que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de agregar el modificador \"required'\"o declarar el campo como un valor que acepta valores NULL.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 16,
+                  "endLine": 18,
+                  "endColumn": 33
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 33,
+                  "endLine": 17,
+                  "endColumn": 50
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8601",
+          "level": "warning",
+          "message": "Posible asignación de referencia nula.",
+          "locations": [
+            {
+              "resultFile": {
                 "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/EstadiaRepository.cs",
                 "region": {
                   "startLine": 19,
@@ -57,61 +112,6 @@
                   "startLine": 16,
                   "startColumn": 33,
                   "endLine": 16,
-                  "endColumn": 50
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8601",
-          "level": "warning",
-          "message": "Posible asignación de referencia nula.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
-                "region": {
-                  "startLine": 20,
-                  "startColumn": 33,
-                  "endLine": 20,
-                  "endColumn": 87
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8618",
-          "level": "warning",
-          "message": "El elemento campo \"_connectionString\" que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de agregar el modificador \"required'\"o declarar el campo como un valor que acepta valores NULL.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
-                "region": {
-                  "startLine": 18,
-                  "startColumn": 16,
-                  "endLine": 18,
-                  "endColumn": 33
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
-                "region": {
-                  "startLine": 17,
-                  "startColumn": 33,
-                  "endLine": 17,
                   "endColumn": 50
                 }
               }
@@ -183,7 +183,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
                 "region": {
                   "startLine": 20,
                   "startColumn": 33,
@@ -204,7 +204,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
                 "region": {
                   "startLine": 18,
                   "startColumn": 16,
@@ -217,7 +217,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
                 "region": {
                   "startLine": 17,
                   "startColumn": 33,
