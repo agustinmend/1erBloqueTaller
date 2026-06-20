@@ -4,6 +4,7 @@ using Hotel.Services.Implementaciones;
 using Hotel.Repository.Interfaces;
 using Hotel.Models.DTOs;
 using Hotel.Models.Entidades;
+using Hotel.Models.Enums;
 using System;
 using System.Threading.Tasks;
 
@@ -27,7 +28,7 @@ namespace HotelTest
         {
             var dto = new CrearReservaDto
             {
-                TipoHabitacion = "Simple",
+                TipoHabitacion = TipoHabitacionEnum.Simple,
                 CantidadPersonas = 1,
                 FechaInicio = DateTime.Now,
                 FechaFin = DateTime.Now.AddDays(2),
@@ -55,7 +56,7 @@ namespace HotelTest
             var dtoInvalido = new CrearReservaDto
             {
                 TitularId = 1,
-                TipoHabitacion = "Simple",
+                TipoHabitacion = TipoHabitacionEnum.Simple,
                 CantidadPersonas = 1,
                 FechaInicio = DateTime.Today,
                 FechaFin = DateTime.Today.AddDays(-1)
@@ -76,11 +77,11 @@ namespace HotelTest
             var dtoValido = new CrearReservaDto
             {
                 TitularId = 1,
-                TipoHabitacion = "Simple",
+                TipoHabitacion = TipoHabitacionEnum.Simple,
                 CantidadPersonas = 1,
                 FechaInicio = DateTime.Today.AddDays(1),
                 FechaFin = DateTime.Today.AddDays(3),
-                Estado = "Confirmada"
+                Estado = "confirmada"
             };
 
             mockRepo.Setup(r => r.BuscarHabitacionDisponibleAsync(

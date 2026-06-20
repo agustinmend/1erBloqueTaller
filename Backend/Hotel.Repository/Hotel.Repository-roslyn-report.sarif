@@ -18,7 +18,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
                 "region": {
                   "startLine": 20,
                   "startColumn": 33,
@@ -39,7 +39,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
                 "region": {
                   "startLine": 18,
                   "startColumn": 16,
@@ -52,7 +52,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
                 "region": {
                   "startLine": 17,
                   "startColumn": 33,
@@ -73,7 +73,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
                 "region": {
                   "startLine": 20,
                   "startColumn": 33,
@@ -94,7 +94,7 @@
           "locations": [
             {
               "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
                 "region": {
                   "startLine": 18,
                   "startColumn": 16,
@@ -107,7 +107,7 @@
           "relatedLocations": [
             {
               "physicalLocation": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/HuespedRepository.cs",
                 "region": {
                   "startLine": 17,
                   "startColumn": 33,

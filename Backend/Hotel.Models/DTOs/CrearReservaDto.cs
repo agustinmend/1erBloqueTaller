@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using Hotel.Models.Enums;
 
 namespace Hotel.Models.DTOs
 {
@@ -18,8 +19,8 @@ namespace Hotel.Models.DTOs
         [Required(ErrorMessage = "La fecha de salida es obligatoria.")]
         public DateTime FechaFin { get; set; }
 
-        [Required(ErrorMessage = "Debe seleccionar un tipo de habitación.")]
-        public string TipoHabitacion { get; set; } = string.Empty;
+        //[Required(ErrorMessage = "Debe seleccionar un tipo de habitación.")]
+        public TipoHabitacionEnum TipoHabitacion { get; set; }
 
         [Required(ErrorMessage = "El estado de la reserva es obligatorio.")]
         public string Estado { get; set; } = "Confirmada";
