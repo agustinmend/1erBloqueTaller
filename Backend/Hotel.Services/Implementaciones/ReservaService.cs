@@ -18,10 +18,7 @@ namespace Hotel.Services.Implementaciones
         }
         public async Task<int> CrearReservaAsync(CrearReservaDto dto)
         {
-            if (dto.FechaFin <= dto.FechaInicio)
-            {
-                throw new ArgumentException("La fecha de salida debe ser estrictamente posterior a la fecha de ingreso.");
-            }
+            ValidadorReserva.ValidarFechasEstadia(dto.FechaInicio, dto.FechaFin);
             IVariacionHabitacion variacion = VariacionHabitacionFactory.CrearVariacion(dto.TipoHabitacion);
             ValidadorReserva.ValidarCapacidad(dto.CantidadPersonas, variacion.CapacidadBase, variacion.Tipo);
             int? habitacionIdAsignada = await _reservaRepository.BuscarHabitacionDisponibleAsync(

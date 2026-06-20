@@ -28,5 +28,13 @@ namespace Hotel.Services.Validadaciones
 
             return precioPorNoche * cantidadNoches;
         }
+
+        public static void ValidarFechasEstadia(DateTime entrada, DateTime salida)
+        {
+            if (salida <= entrada)
+            {
+                throw new ArgumentException("La fecha de salida debe ser estrictamente posterior a la fecha de ingreso.");
+            }
+        }
     }
 }

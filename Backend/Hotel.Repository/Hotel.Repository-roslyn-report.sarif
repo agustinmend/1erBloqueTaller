@@ -18,6 +18,27 @@
           "locations": [
             {
               "resultFile": {
+                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/EstadiaRepository.cs",
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 33,
+                  "endLine": 19,
+                  "endColumn": 87
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "CS8601",
+          "level": "warning",
+          "message": "Posible asignación de referencia nula.",
+          "locations": [
+            {
+              "resultFile": {
                 "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/ReservaRepository.cs",
                 "region": {
                   "startLine": 20,
@@ -58,27 +79,6 @@
                   "startColumn": 33,
                   "endLine": 17,
                   "endColumn": 50
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "CS8601",
-          "level": "warning",
-          "message": "Posible asignación de referencia nula.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///D:/Agustin/Universidad/5to%20semestre/Taller%20de%20dise%C3%B1o%20I/Examen%201er%20Bloque/Programa/Backend/Hotel.Repository/Implementaciones/EstadiaRepository.cs",
-                "region": {
-                  "startLine": 19,
-                  "startColumn": 33,
-                  "endLine": 19,
-                  "endColumn": 87
                 }
               }
             }
